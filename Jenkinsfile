@@ -2,7 +2,7 @@ pipeline {
     agent any
  
     environment {
-         PATH = 'C:/Program Files/Git/cmd/git.exe'
+         PATH = 'C:/Users/adama/Desktop/MSPR_ERP/flutter/bin'
     }
 
     stages{
