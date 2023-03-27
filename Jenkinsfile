@@ -1,10 +1,7 @@
 pipeline {
     agent any
  
-    
-     environment {
-         PATH = 'C:/Users/adama/Desktop/MSPR_ERP/flutter/bin'
-    }
+
 
     stages{
         stage('Paytonkawa checkout') { 
