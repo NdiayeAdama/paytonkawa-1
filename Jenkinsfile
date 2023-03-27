@@ -3,7 +3,7 @@ pipeline {
  
     
      environment {
-         PATH = 'C:/Users/adama/Desktop/MSPR_ERP/flutter/bin';'C:/Windows/System32'
+         PATH = 'C:/Users/adama/Desktop/MSPR_ERP/flutter/bin'
     }
 
     stages{
