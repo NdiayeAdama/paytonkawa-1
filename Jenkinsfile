@@ -1,7 +1,9 @@
 pipeline {
     agent any
  
-
+    environment {
+         PATH = 'C:/Program Files/Git/cmd/git.exe'
+    }
 
     stages{
         stage('Paytonkawa checkout') { 
