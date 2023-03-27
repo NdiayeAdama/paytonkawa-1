@@ -25,6 +25,16 @@ pipeline {
                  
                 } 
          }
+        
+        
+        stage('Paytonkawa git version') {
+                steps {
+                   
+                  
+                    bat 'git --version'
+                 
+                } 
+         }
 
         stage('Paytonkawa clean') {
                 steps {
