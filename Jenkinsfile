@@ -1,86 +1,43 @@
 pipeline {
     agent any
- 
     environment {
-         PATH_1 = 'C:/Windows/System32'
-         PATH_2 = 'C:/Users/adama/Desktop/MSPR_ERP/flutter/bin'
-         PATH_3 = 'C:/Program Files/Git/bin/git.exe'
-         PATH_4 = 'C:/Program Files/Git/cmd'
-        
-        
+        PATH = "$PATH:/Library/Frameworks/Python.framework/Versions/3.12/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/wejdene/Documents/flutter/bin"
     }
-
-    stages{
-        stage('Paytonkawa checkout') { 
+    stages {
+        stage('Checkout') {
             steps {
-                git branch:'main',url:'https://github.com/NdiayeAdama/paytonkawa-1.git'
-                }
-
-        }
-        
-        stage('Flutter path') {
-                steps {
-                   
-                    bat """
-                        setx PATH "%PATH%;C:/Users/adama/Desktop/MSPR_ERP/flutter/bin"
-                    """
-                 
-                } 
-         }
-        
-        
-        stage('Paytonkawa git version') {
-                steps {
-                   
-                  
-                    bat 'git --version'
-                 
-                } 
-         }
-
-        stage('Paytonkawa clean') {
-                steps {
-                   
-                  
-                    bat 'flutter clean'
-                 
-                } 
-         }
-
-        stage('Paytonkawa dependencies') {
-            steps {
-              
-               
-                bat 'flutter pub get'
-           
-          }  
-        }
-
-        stage('Paytonkawa test') {
-            steps {
-                dir('lib/'){
-                       bat 'flutter test'
-                    }
+                checkout([$class: 'GitSCM', branches: [[name: '/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/NdiayeAdama/paytonkawa-1.git%27]]])
             }
         }
-
-        stage('Paytonkawa package') {
-              steps {
-                 
-                   bat 'flutter build apk --release'
-               
-              }  
+         stage('clean') {
+                    steps {
+                        sh 'flutter clean'
+                    }
         }
-
-        stage('Paytonkawa archive') {
+        stage('Build and Test') {
             steps {
-               
-                bat 'mv build/app/outputs/flutter-apk/app-release.apk apk-payetonkawa-$BUILD_NUMBER.apk'
-                archiveArtifacts artifacts: 'apk-payetonkawa-*.apk', followSymlinks: false 
+                sh 'flutter pub get'
+            }
+        }
+        stage('test') {
+            steps {
+                   sh 'flutter test'
+                   }
+                }
+        stage('package') {
+                steps {
+                    sh 'flutter build apk --release'
+                }
+        }
+        stage('archive') {
+            steps {
 
-             
-          } 
-        }  
+                sh 'mv build/app/outputs/flutter-apk/app-release.apk apk-payetonkawa-$BUILD_NUMBER.apk'
+                archiveArtifacts artifacts: 'apk-payetonkawa-.apk', followSymlinks: false
+
+            }
+         }
+
 
     }
-  }
+}
