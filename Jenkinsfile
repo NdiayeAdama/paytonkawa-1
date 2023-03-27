@@ -2,7 +2,7 @@ pipeline {
     agent any
  
     environment {
-        export PATH = "C:/Users/adama/Desktop/MSPR_ERP/flutter/bin:$PATH"
+         PATH = 'C:/Users/adama/Desktop/MSPR_ERP/flutter/bin'
     }
 
     stages{
