@@ -16,7 +16,7 @@ pipeline {
         stage('Paytonkawa clean') {
                 steps {
                   
-                    bat 'flutter clean'
+                    sh 'flutter clean'
                  
                 } 
          }
@@ -24,7 +24,7 @@ pipeline {
         stage('Paytonkawa dependencies') {
             steps {
               
-                bat 'flutter pub get'
+                sh 'flutter pub get'
            
           }  
         }
@@ -32,7 +32,7 @@ pipeline {
         stage('Paytonkawa test') {
             steps {
                 dir('lib/'){
-                       bat 'flutter test'
+                       sh 'flutter test'
                     }
             }
         }
@@ -40,7 +40,7 @@ pipeline {
         stage('Paytonkawa package') {
               steps {
                  
-                   bat 'flutter build apk --release'
+                   sh 'flutter build apk --release'
                
               }  
         }
@@ -48,7 +48,7 @@ pipeline {
         stage('Paytonkawa archive') {
             steps {
                
-                bat 'mv build/app/outputs/flutter-apk/app-release.apk apk-payetonkawa-$BUILD_NUMBER.apk'
+                sh 'mv build/app/outputs/flutter-apk/app-release.apk apk-payetonkawa-$BUILD_NUMBER.apk'
                 archiveArtifacts artifacts: 'apk-payetonkawa-*.apk', followSymlinks: false
 
              
