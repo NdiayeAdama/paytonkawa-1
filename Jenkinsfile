@@ -26,6 +26,9 @@ pipeline {
         stage('Paytonkawa clean') {
                 steps {
                    
+                    bat """
+                        setx PATH "%PATH%;C:/Users/adama/Desktop/MSPR_ERP/flutter/bin"
+                    """
                     bat 'flutter clean'
                  
                 } 
@@ -34,6 +37,9 @@ pipeline {
         stage('Paytonkawa dependencies') {
             steps {
               
+                bat """
+                        setx PATH "%PATH%;C:/Users/adama/Desktop/MSPR_ERP/flutter/bin"
+                    """
                 bat 'flutter pub get'
            
           }  
