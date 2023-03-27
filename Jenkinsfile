@@ -1,12 +1,9 @@
 pipeline {
     agent any
  
-    environment {
-         PATH = 'C:/Windows/System32'
-    }
     
      environment {
-         PATH = 'C:/Users/adama/Desktop/MSPR_ERP/flutter/bin'
+         PATH = 'C:/Users/adama/Desktop/MSPR_ERP/flutter/bin';'C:/Windows/System32'
     }
 
     stages{
