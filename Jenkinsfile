@@ -61,7 +61,7 @@ pipeline {
             steps {
                
                 bat 'mv build/app/outputs/flutter-apk/app-release.apk apk-payetonkawa-$BUILD_NUMBER.apk'
-                archiveArtifacts artifacts: 'apk-payetonkawa-*.apk', followSymlinks: false
+                archiveArtifacts artifacts: 'apk-payetonkawa-*.apk', followSymlinks: false 
 
              
           } 
