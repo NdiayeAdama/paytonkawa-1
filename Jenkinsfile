@@ -26,10 +26,8 @@ pipeline {
         stage('Paytonkawa clean') {
                 steps {
                    
-                    bat """
-                        setx PATH "%PATH%;C:/Users/adama/Desktop/MSPR_ERP/flutter/bin"
-                    """
-                    bat 'flutter clean'
+                  
+                    bat 'C:/Users/adama/Desktop/MSPR_ERP/flutter/bin flutter clean'
                  
                 } 
          }
@@ -37,10 +35,8 @@ pipeline {
         stage('Paytonkawa dependencies') {
             steps {
               
-                bat """
-                        setx PATH "%PATH%;C:/Users/adama/Desktop/MSPR_ERP/flutter/bin"
-                    """
-                bat 'flutter pub get'
+               
+                bat 'C:/Users/adama/Desktop/MSPR_ERP/flutter/bin flutter pub get'
            
           }  
         }
@@ -48,7 +44,7 @@ pipeline {
         stage('Paytonkawa test') {
             steps {
                 dir('lib/'){
-                       bat 'flutter test'
+                       bat 'C:/Users/adama/Desktop/MSPR_ERP/flutter/bin flutter test'
                     }
             }
         }
@@ -56,7 +52,7 @@ pipeline {
         stage('Paytonkawa package') {
               steps {
                  
-                   bat 'flutter build apk --release'
+                   bat 'C:/Users/adama/Desktop/MSPR_ERP/flutter/bin flutter build apk --release'
                
               }  
         }
