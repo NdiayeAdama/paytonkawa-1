@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/NdiayeAdama/paytonkawa-1.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '33855b67-8e21-4734-b70d-4173e40450f9', url: 'https://github.com/NdiayeAdama/paytonkawa-1.git']]])
             }
         }
          stage('clean') {
