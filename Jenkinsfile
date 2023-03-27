@@ -27,7 +27,7 @@ pipeline {
                 steps {
                    
                   
-                    bat 'C:\Users\adama\Desktop\MSPR_ERP\flutter\bin flutter clean'
+                    bat 'C:/Users/adama/Desktop/MSPR_ERP/flutter flutter clean'
                  
                 } 
          }
@@ -36,7 +36,7 @@ pipeline {
             steps {
               
                
-                bat 'C:/Users/adama/Desktop/MSPR_ERP/flutter/bin flutter pub get'
+                bat 'C:/Users/adama/Desktop/MSPR_ERP/flutter flutter pub get'
            
           }  
         }
