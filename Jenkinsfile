@@ -2,7 +2,7 @@ pipeline {
     agent any
  
     environment {
-         PATH = 'C:/Users/adama/Desktop/MSPR_ERP/flutter/bin'
+         PATH = 'C:/Windows/System32' 'C:/Users/adama/Desktop/MSPR_ERP/flutter/bin'
     }
 
     stages{
@@ -12,10 +12,20 @@ pipeline {
                 }
 
         }
+        
+        stage('Flutter path') {
+                steps {
+                   
+                    bat """
+                        setx PATH "%PATH%;C:/Users/adama/Desktop/MSPR_ERP/flutter/bin"
+                    """
+                 
+                } 
+         }
 
         stage('Paytonkawa clean') {
                 steps {
-                  
+                   
                     bat 'flutter clean'
                  
                 } 
