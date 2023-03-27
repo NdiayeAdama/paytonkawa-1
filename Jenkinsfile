@@ -4,6 +4,8 @@ pipeline {
     environment {
          PATH_1 = 'C:/Windows/System32'
          PATH_2 = 'C:/Users/adama/Desktop/MSPR_ERP/flutter/bin'
+         PATH_3 = 'C:/Program Files/Git/bin/git.exe'
+         PATH_4 = 'C:/Program Files/Git/cmd'
         
         
     }
